@@ -1,0 +1,85 @@
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{
+    "name": "Fotógrafos",
+    "description": "Fotógrafos que vão registrar os melhores momentos da sua festa.",
+    "price": 3000,
+    "image": "https://images.unsplash.com/photo-1552334823-ca7f70376914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+  }
+
+    
+###
+GET http://localhost:3000/api/services/
+
+###
+GET http://localhost:3000/api/services/
+
+###
+DELETE http://localhost:3000/api/services/
+
+###
+PUT http://localhost:3000/api/services/
+Content-Type: application/json
+
+{
+    "name": "ATUALIZADO",
+    "description": "Muito bom",
+    "price": 199.90
+}
+
+###
+POST http://localhost:3000/api/parties
+Content-Type: application/json
+
+{
+    "title": "Meu evento",
+    "author": "Fabio",
+    "description": "Uma festa de aniversário",
+    "budget": 9000,
+    "image": "https://images.unsplash.com/photo-1618371731836-2b9bff9ac72a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+    "services": [{
+        "_id": "69bc168dfc99050267efa741",
+        "name": "Segurança",
+        "description": "Esquema de segurança completo para a sua festa",
+        "price": 2500
+    },
+    {
+        "_id": "63937a6929b37d5f01064c21",
+        "name": "Serviço 4",
+        "description": "TEste",
+        "price": 129.90
+    }]
+}
+
+###
+GET http://localhost:3000/api/parties
+
+###
+GET http://localhost:3000/api/parties/63939be4c4ab483878b0f80f
+
+###
+DELETE http://localhost:3000/api/parties/63939be4c4ab483878b0f80f
+
+###
+PUT http://localhost:3000/api/parties/63939be4c4ab483878b0f80f
+Content-Type: application/json
+
+{
+    "title": "Meu evento 2",
+    "author": "Fabio",
+    "description": "Uma festa de aniversário",
+    "budget": 9000,
+    "services": ["63937a6929b37d5f01064c19"]
+}
+
+###
+GET http://localhost:3000/api/parties
+
+###
+GET http://localhost:3000/api/parties/63937a6929b37d5f01064c19
+
+###
+DELETE http://localhost:3000/api/parties/63937a6929b37d5f01064c19
+
+###

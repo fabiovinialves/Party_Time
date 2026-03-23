@@ -1,0 +1,52 @@
+import partyFetch from "../axios/config";
+
+
+import { useState, useEffect,} from "react";
+
+
+import { Link, useNavigate } from "react-router-dom";
+
+import "./Home.css";
+import CreateParty from "./CreateParty";
+
+const Home = () => {
+  const [parties, setParties] = useState(null);
+
+  // Load parties
+  useEffect(() => {
+    const loadParties = async () => {
+      const res = await partyFetch.get("/parties");
+
+      setParties(res.data);
+    };
+
+    loadParties();
+  }, []);
+
+  if (!parties) return <p>Carregando...</p>;
+
+  return (
+    
+    
+    <div className="home">
+      <h1>Suas Festas</h1>
+      <div className="parties-container">
+        {parties.length === 0 && <p>Não há festas criadas!</p>}
+        {parties.map((party) => (
+          <div className="party" key={party._id}>
+            <div className="home-img" key={party._id}>
+            <img src={party.image} alt={party.title} />
+            </div>
+            <h3>{party.title}</h3>
+            <p> {party.description}</p>
+            <Link to={`/party/${party._id}`} className="btn-secondary">
+              Detalhes
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;
